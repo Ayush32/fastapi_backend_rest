@@ -18,8 +18,8 @@ def get_chapter(chapters, chapter_id: str):
         if chapter_index < 0 or chapter_index >= len(chapters):
             raise IndexError("Chapter index out of range")
         return chapters[chapter_index]
-    except (ValueError, IndexError):
-        raise HTTPException(status_code=404, detail='Chapter not found') from e
+    except (ValueError, IndexError) as e:
+        raise HTTPException(status_code=404, detail='Chapter not found')
 
 #  Fetch the course document from the database.
 def fetch_course(course_id : str):

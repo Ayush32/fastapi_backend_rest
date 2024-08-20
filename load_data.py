@@ -3,17 +3,19 @@ import sys
 import json
 import pymongo
 
-# Adjust sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Connect to MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["courses"]
+collection = db["courses"]
 
-from app.database import collection, client
 
 # read courses from JSON File
 def load_courses_data():
-    if not os.path.exists("app/courses.json"):
+    file_path = 'courses.json'
+    if not os.path.exists(file_path):
         raise FileNotFoundError("The courses.json file does not exists")
     
-    with open("app/courses.json","r") as f:
+    with open(file_path,"r") as f:
         courses = json.load(f)
         
     # create index for efficient retrieval
