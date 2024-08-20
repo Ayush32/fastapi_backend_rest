@@ -1,7 +1,7 @@
 Completed Assessment for Kimo using FastAPI and MongoDb.
 
 ## clone the Repository using git clone 
-* https://github.com/Ayush32/fastapi_backend_rest
+* git clone https://github.com/Ayush32/fastapi_backend_rest
 * Open the directory in vscode
 * run virutalenv venv
 * activate the virtualenv - venv/ascripts/activate
